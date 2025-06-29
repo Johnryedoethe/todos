@@ -1,0 +1,109 @@
+html {
+  margin: 0;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Monomakh";
+  background-color: #ecedec;
+}
+
+.cssText {
+  font-size: large;
+  color: black
+}
+
+#task-text {
+  border-radius: 1%;
+  transition: transform 500ms;
+  margin: 0;
+}
+
+#task-text:hover {
+  transform: scale(1.1);
+  border-radius: 5%;
+}
+
+#deleteButton {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 3%;
+  transition: transform 500ms;
+  margin: 0;
+}
+
+#deleteButton:hover {
+  border-radius: 4%;
+  transform: scale(1.1);
+}
+
+.checkBox {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 3%;
+  transition: transform 500ms;
+  margin: 0;
+  height: 5%;
+}
+
+.checkBox:hover {
+  border-radius: 4%;
+  transform: scale(1.2);
+}
+
+.textElem {
+  color: black;
+  transition: transform 500ms;
+}
+
+.textElem:hover {
+  color: black;
+  transform: scale(1.2);
+}
+
+.logo {
+  border-radius: 5%;
+  width: 25%;
+  height: 25%;
+  transition: transform 800ms;
+  display: block;
+  margin: 0 auto;
+}
+
+.logo:hover {
+  border-radius: 5%;
+  transform: scale(1.2);
+  margin: middle;
+}
+
+#handle {
+  margin: middle;
+}
+/* button {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 3%;
+  padding: 1%
+} */
+
+#add-task {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 3%;
+  transition: transform 500ms;
+  margin: 0;
+}
+
+#add-task:hover {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 5%;
+  transform: scale(1.1);
+}
+
+#checkbox:checked {
+  .textElem {
+    text-decoration: line-through;
+  }
+}

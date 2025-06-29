@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>TODO list app</title>
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monomakh&display=swap" rel="stylesheet">
+  <!-- referencing a stylesheet and a js file -->
+  <link rel="stylesheet" href="style.css" type="text/CSS" />
+  <script src="app.js"></script>
+
+  <link rel="icon" href="Paint.png">
+</head>
+<!-- load the elements -->
+
+<body onload="setup()">
+  <h2>TODOs list</h2>
+
+  <!-- input is from the user, button is to add the task in an ordered list of numbers -->
+  <input id="task-text" type="text" />
+  <button id="add-task">Add task</button>
+  <ol id="tasks" class="cssText"></ol>
+
+  <!-- miscellaneous -->
+  <h2 id="handle">created by</h2>
+  <img src="Paint.png" class="logo">
+  <br>
+  <h2 id="calender">Calender</h2>
+  <div id="calendar">
+    <div class="calendar-day" id="day1">Monday</div>
+  </div>
+</body>
+</html>
