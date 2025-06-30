@@ -1,71 +1,79 @@
-// Adds a task to the list.
-function addTask() {
-  // read the input with .value and .trim()
-  // trim the user input for convenience so the task when the task has extra spaces it cancels it
-  const taskText = document.getElementById("task-text")
-  const text = taskText.value.trim()
+// Get tasks from localStorage
+function getSavedTasks() {
+  const saved = localStorage.getItem("tasks");
+  return saved ? JSON.parse(saved) : [];
+}
 
-  // check if the input from the user is blank,
-  // return so that an empty task will not be created
-  if (text === "") {
-    return
+// Save tasks to localStorage
+function saveTasksToStorage(tasksArr) {
+  localStorage.setItem("tasks", JSON.stringify(tasksArr));
+  // console.log(localStorage.getItem("tasks"));
+}
+
+// Adds a task to the list.
+function addTask(taskTextValue) {
+  // If called with a value, use it (for loading), else get from input
+  let text;
+  if (typeof taskTextValue === "string") {
+    text = taskTextValue.trim();
+  } else {
+    const taskText = document.getElementById("task-text");
+    text = taskText.value.trim();
   }
 
-  // Anchor to add a new task dynamically to create a list element
-  const li = document.createElement("li")
+  if (text === "") {
+    return;
+  }
 
+  const li = document.createElement("li");
   li.draggable = true;
-  li.id = "task" + Date.now(); // unique ID
+  li.id = "task" + Date.now();
   li.addEventListener("dragstart", m => {
     m.dataTransfer.setData("text/plain", m.target.id);
   });
 
-  // create an input type that is a checkbox, this will be done by a user
-  // it will not be removed due to people wanting to check if they have done something
-  let checkbox = document.createElement("input")
-  // convert the type of input into a checkbox
-  checkbox.type = "checkbox"
-  checkbox.class = "checkBox"
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.class = "checkBox";
 
-  // create the text for the user to see the task
-  //  this is the most improtant part as it shows the task created by the user
   const textElement = document.createElement("span");
   textElement.textContent = text;
-  textElement.id = "textElem"
+  textElement.id = "textElem";
 
-  // add an input for the user
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.id = "deleteButton";
+  deleteButton.addEventListener("click", deleteTask);
 
-  // const DateInput = document.createElement("input")
-  // DateInput.type = "text"
-  // let userDateInput = DateInput.value
-  // let addTime = addTime.date(userDateInput)
+  li.appendChild(checkbox);
+  li.appendChild(textElement);
+  li.appendChild(deleteButton);
 
-  // delete a task with a button, check if it has been clicked with addEventListener
-  const deleteButton = document.createElement("button")
-  deleteButton.textContent = "Delete"
-  deleteButton.id = "deleteButton"
-  deleteButton.addEventListener("click", deleteTask)
+  tasks.appendChild(li);
 
-  // anchor all the elements that will be created to the "li" element
-  li.appendChild(checkbox)
-  li.appendChild(textElement)
-  // li.appendChild(addTime)
-  li.appendChild(deleteButton)
+  // Only save if not loading from storage
+  if (typeof taskTextValue !== "string") {
+    // Save to localStorage
+    const tasksArr = getSavedTasks();
+    tasksArr.push(text);
 
-  // appendChild dynamically adds the elements to the website through DOM manipulation
-  // "tasks" is the ordered list that is referenced to display the text
-  tasks.appendChild(li)
+    // console.log(tasksArr);
 
-  // cut the input the user has put in
-  // so that the user doesn't have to delete the text in the user input manually
-  taskText.value = ""
+    saveTasksToStorage(tasksArr);
+    document.getElementById("task-text").value = "";
+  }
 }
 
 // delete a task on the list with a button 
 function deleteTask(deleteButtonClickEvent) {
-  const clickedDeleteButton = deleteButtonClickEvent.target
-  const li = clickedDeleteButton.parentNode
-  li.remove()
+  const clickedDeleteButton = deleteButtonClickEvent.target;
+  const li = clickedDeleteButton.parentNode;
+  const text = li.querySelector("span").textContent;
+  li.remove();
+  // Remove from localStorage
+  let tasksArr = getSavedTasks();
+  tasksArr = tasksArr.filter(t => t !== text);
+  saveTasksToStorage(tasksArr);
 }
 
 // Load everything with setup
@@ -75,14 +83,15 @@ function setup() {
   const addButton = document.getElementById("add-task")
   const tasks = document.getElementById("tasks")
 
-  const saveTasks = []
-  const sample = []
+  // Load tasks from localStorage
+  const savedTasks = getSavedTasks();
+  savedTasks.forEach(task => addTask(task));
 
   // add tasks with "enter" to save time for the user
   taskInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
+      // console.log("Enter");
       addTask()
-      saveToArray()
     }
   }
   );
@@ -117,3 +126,6 @@ function setup() {
 
   addButton.addEventListener("click", addTask,)
 }
+
+// Run setup on page load
+//document.addEventListener("DOMContentLoaded", setup);
