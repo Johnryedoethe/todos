@@ -36,6 +36,10 @@ function addTask(taskTextValue) {
   checkbox.type = "checkbox";
   checkbox.class = "checkBox";
 
+  // let timebox = document.createElement("input")
+  // timebox.type = "datetime-local";
+  // timebox.class = timebox;
+
   const textElement = document.createElement("span");
   textElement.textContent = text;
   textElement.id = "textElem";
@@ -48,6 +52,7 @@ function addTask(taskTextValue) {
   li.appendChild(checkbox);
   li.appendChild(textElement);
   li.appendChild(deleteButton);
+  // li.appendchuld(timebox)
 
   tasks.appendChild(li);
 
