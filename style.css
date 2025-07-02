@@ -7,9 +7,11 @@ body {
   margin: 0;
   font-family: "Monomakh";
   background-color: #ecedec;
+  /* display: flex; */
+  justify-content: center;
 }
 
-.cssText {
+.list-task-text {
   font-size: large;
   color: black
 }
@@ -17,7 +19,8 @@ body {
 #task-text {
   border-radius: 1%;
   transition: transform 500ms;
-  margin: 0;
+  margin: middle;
+  height: 4%;
 }
 
 #task-text:hover {
@@ -25,7 +28,7 @@ body {
   border-radius: 5%;
 }
 
-#deleteButton {
+#add-task {
   color: black;
   background-color: aliceblue;
   border-radius: 3%;
@@ -33,31 +36,50 @@ body {
   margin: 0;
 }
 
-#deleteButton:hover {
+#add-task:hover {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 5%;
+  transform: scale(1.1);
+}
+
+#delete-button {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 3%;
+  transition: transform 500ms;
+  margin: 0;
+}
+
+#delete-button:hover {
   border-radius: 4%;
   transform: scale(1.1);
 }
 
-.checkBox {
+.checkbox {
   color: black;
   background-color: aliceblue;
   border-radius: 3%;
   transition: transform 500ms;
   margin: 0;
   height: 5%;
+  margin: bottom 40px;
+  padding: 2em;
+  background-color: #fff;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.0)
 }
 
-.checkBox:hover {
+.checkbox:hover {
   border-radius: 4%;
   transform: scale(1.2);
 }
 
-.textElem {
+.text-element {
   color: black;
   transition: transform 500ms;
 }
 
-.textElem:hover {
+.text-element:hover {
   color: black;
   transform: scale(1.2);
 }
@@ -87,23 +109,4 @@ body {
   padding: 1%
 } */
 
-#add-task {
-  color: black;
-  background-color: aliceblue;
-  border-radius: 3%;
-  transition: transform 500ms;
-  margin: 0;
-}
 
-#add-task:hover {
-  color: black;
-  background-color: aliceblue;
-  border-radius: 5%;
-  transform: scale(1.1);
-}
-
-#checkbox:checked {
-  .textElem {
-    text-decoration: line-through;
-  }
-}

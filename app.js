@@ -34,7 +34,7 @@ function addTask(taskTextValue) {
 
   let checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.class = "checkBox";
+  checkbox.class = "checkbox";
 
   // let timebox = document.createElement("input")
   // timebox.type = "datetime-local";
@@ -42,11 +42,11 @@ function addTask(taskTextValue) {
 
   const textElement = document.createElement("span");
   textElement.textContent = text;
-  textElement.id = "textElem";
+  textElement.id = "text-element";
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
-  deleteButton.id = "deleteButton";
+  deleteButton.id = "delete-button";
   deleteButton.addEventListener("click", deleteTask);
 
   li.appendChild(checkbox);
@@ -75,6 +75,7 @@ function deleteTask(deleteButtonClickEvent) {
   const li = clickedDeleteButton.parentNode;
   const text = li.querySelector("span").textContent;
   li.remove();
+
   // Remove from localStorage
   let tasksArr = getSavedTasks();
   tasksArr = tasksArr.filter(t => t !== text);
