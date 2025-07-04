@@ -1,3 +1,4 @@
+var checkbox 
 // Get tasks from localStorage
 function getSavedTasks() {
   const saved = localStorage.getItem("tasks");
@@ -32,9 +33,10 @@ function addTask(taskTextValue) {
     m.dataTransfer.setData("text/plain", m.target.id);
   });
 
-  let checkbox = document.createElement("input");
+  checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.class = "checkbox";
+  // checkbox.checked = markAsChecked()
 
   // let timebox = document.createElement("input")
   // timebox.type = "datetime-local";
@@ -43,6 +45,7 @@ function addTask(taskTextValue) {
   const textElement = document.createElement("span");
   textElement.textContent = text;
   textElement.id = "text-element";
+  textElement.class = "text-elem"
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
@@ -102,14 +105,11 @@ function setup() {
   }
   );
 
-  function checkIfChecked(checkbox) {
-    for (let i = 0; i++;) {
-      if (checkbox.checked === true) {
-        textElement.style.textDecoration = "line-through";
-      }
-    }
-
-  }
+  // function markAsChecked() {
+  //     if (checkbox.checked) {
+  //       textElement.id = "textElemChecked"
+  //     }
+  // }
 
   // function saveToArray(saveTasks, li) {
   //   for (let i = 0; i < sample.length; i++) {
