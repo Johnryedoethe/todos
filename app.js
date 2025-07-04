@@ -1,9 +1,11 @@
-var checkbox 
+var checkbox
+
 // Get tasks from localStorage
 function getSavedTasks() {
   const saved = localStorage.getItem("tasks");
   return saved ? JSON.parse(saved) : [];
 }
+
 
 // Save tasks to localStorage
 function saveTasksToStorage(tasksArr) {
@@ -11,9 +13,12 @@ function saveTasksToStorage(tasksArr) {
   // console.log(localStorage.getItem("tasks"));
 }
 
+
 // Adds a task to the list.
 function addTask(taskTextValue) {
+
   // If called with a value, use it (for loading), else get from input
+
   let text;
   if (typeof taskTextValue === "string") {
     text = taskTextValue.trim();
@@ -22,12 +27,14 @@ function addTask(taskTextValue) {
     text = taskText.value.trim();
   }
 
+
   if (text === "") {
     return;
   }
 
   const li = document.createElement("li");
   li.draggable = true;
+
   li.id = "task" + Date.now();
   li.addEventListener("dragstart", m => {
     m.dataTransfer.setData("text/plain", m.target.id);
@@ -36,6 +43,7 @@ function addTask(taskTextValue) {
   checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.class = "checkbox";
+
   // checkbox.checked = markAsChecked()
 
   // let timebox = document.createElement("input")
@@ -56,16 +64,15 @@ function addTask(taskTextValue) {
   li.appendChild(textElement);
   li.appendChild(deleteButton);
   // li.appendchuld(timebox)
-
+  // append all 3 elements to the tasks element
   tasks.appendChild(li);
 
   // Only save if not loading from storage
+
   if (typeof taskTextValue !== "string") {
     // Save to localStorage
     const tasksArr = getSavedTasks();
     tasksArr.push(text);
-
-    // console.log(tasksArr);
 
     saveTasksToStorage(tasksArr);
     document.getElementById("task-text").value = "";
@@ -75,6 +82,7 @@ function addTask(taskTextValue) {
 // delete a task on the list with a button 
 function deleteTask(deleteButtonClickEvent) {
   const clickedDeleteButton = deleteButtonClickEvent.target;
+
   const li = clickedDeleteButton.parentNode;
   const text = li.querySelector("span").textContent;
   li.remove();
@@ -99,8 +107,7 @@ function setup() {
   // add tasks with "enter" to save time for the user
   taskInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-      // console.log("Enter");
-      addTask()
+      addTask();
     }
   }
   );
@@ -130,7 +137,7 @@ function setup() {
   // add the task with the button, reference the function
   // the function will activate and read the input, create new elements, 
 
-  addButton.addEventListener("click", addTask,)
+  addButton.addEventListener("click", addTask)
 }
 
 // Run setup on page load
