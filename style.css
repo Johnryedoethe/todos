@@ -19,7 +19,7 @@ body {
 #task-text {
   border-radius: 1%;
   transition: transform 500ms;
-  margin: middle;
+  margin: 0 auto;
   height: 4%;
 }
 
@@ -33,7 +33,7 @@ body {
   background-color: aliceblue;
   border-radius: 3%;
   transition: transform 500ms;
-  margin: 0;
+  margin: 0 auto;
 }
 
 #add-task:hover {
@@ -48,7 +48,7 @@ body {
   background-color: aliceblue;
   border-radius: 3%;
   transition: transform 500ms;
-  margin: 0;
+  margin: 0 auto;
 }
 
 #delete-button:hover {
@@ -63,7 +63,7 @@ body {
   transition: transform 500ms;
   margin: 0;
   height: 5%;
-  margin: bottom 40px;
+  margin: 0 auto;
   padding: 2em;
   background-color: #fff;
   box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.0)
@@ -77,6 +77,7 @@ body {
 .text-element {
   color: black;
   transition: transform 500ms;
+  margin: 0 auto;
 }
 
 .text-element:hover {
