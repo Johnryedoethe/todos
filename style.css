@@ -74,12 +74,12 @@ body {
   transform: scale(1.2);
 }
 
-.text-element {
+.text-elem {
   color: black;
   transition: transform 500ms;
 }
 
-.text-element:hover {
+.text-elem:hover {
   color: black;
   transform: scale(1.2);
 }
@@ -101,6 +101,10 @@ body {
 
 #handle {
   margin: middle;
+}
+
+#textElemChecked {
+  text-decoration: line-through;
 }
 /* button {
   color: black;
