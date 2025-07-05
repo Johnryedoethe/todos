@@ -1,116 +1,153 @@
 html {
   margin: 0;
   width: 100%;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Monomakh";
+  font-family: "Monomakh", monospace, sans-serif;
   background-color: #ecedec;
-  /* display: flex; */
-  justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 0 64px 0;
 }
 
-.list-task-text {
-  font-size: large;
-  color: black
+h2 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
 #task-text {
-  border-radius: 1%;
+  border-radius: 6px;
+  border: 1px solid #bdbdbd;
   transition: transform 500ms;
-  margin: middle;
-  height: 4%;
+  margin: 0 8px 0 0;
+  height: 2.2em;
+  padding: 0 12px;
+  font-size: 1.1em;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-#task-text:hover {
-  transform: scale(1.1);
-  border-radius: 5%;
+#task-text:hover, #task-text:focus {
+  transform: scale(1.05);
+  border-radius: 8px;
+  outline: none;
+  border-color: #7b9acc;
 }
 
 #add-task {
-  color: black;
-  background-color: aliceblue;
-  border-radius: 3%;
-  transition: transform 500ms;
-  margin: 0;
+  color: #222;
+  background-color: #e3f0fa;
+  border-radius: 6px;
+  border: 1px solid #bdbdbd;
+  transition: transform 300ms, background 300ms;
+  margin: 0 0 0 0;
+  padding: 0.5em 1.2em;
+  font-size: 1.1em;
+  cursor: pointer;
 }
 
 #add-task:hover {
-  color: black;
-  background-color: aliceblue;
-  border-radius: 5%;
-  transform: scale(1.1);
+  background-color: #cbe6ff;
+  border-radius: 8px;
+  transform: scale(1.08);
 }
 
-#delete-button {
-  color: black;
-  background-color: aliceblue;
-  border-radius: 3%;
-  transition: transform 500ms;
-  margin: 0;
+#tasks {
+  width: 100%;
+  max-width: 480px;
+  margin: 32px auto 0 auto;
+  padding: 0 0 24px 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  list-style: decimal inside;
 }
 
-#delete-button:hover {
-  border-radius: 4%;
-  transform: scale(1.1);
+#tasks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.35em; /* Increased font size for task text */
+  transition: background 0.2s;
 }
 
-.checkbox {
-  color: black;
-  background-color: aliceblue;
-  border-radius: 3%;
-  transition: transform 500ms;
-  margin: 0;
-  height: 5%;
-  margin: bottom 40px;
-  padding: 2em;
-  background-color: #fff;
-  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.0)
+#tasks li:last-child {
+  border-bottom: none;
 }
 
-.checkbox:hover {
-  border-radius: 4%;
-  transform: scale(1.2);
+.checkBox {
+  margin-right: 20px;
+  accent-color: #7b9acc;
+  width: 2.4em;
+  height: 2.4em;
+  min-width: 2.4em;
+  min-height: 2.4em;
+  cursor: pointer;
+  /* Add extra clickable area */
+  padding: 6px;
+  box-sizing: content-box;
 }
 
-.text-elem {
-  color: black;
-  transition: transform 500ms;
+#deleteButton, #delete-button {
+  color: #fff;
+  background-color: #e57373;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 300ms, transform 300ms;
+  margin-left: 12px;
 }
 
-.text-elem:hover {
-  color: black;
-  transform: scale(1.2);
+#deleteButton:hover, #delete-button:hover {
+  background-color: #c62828;
+  transform: scale(1.08);
 }
 
-.logo {
-  border-radius: 5%;
-  width: 25%;
-  height: 25%;
-  transition: transform 800ms;
-  display: block;
-  margin: 0 auto;
-}
-
-.logo:hover {
-  border-radius: 5%;
-  transform: scale(1.2);
-  margin: middle;
-}
-
-#handle {
-  margin: middle;
+.textElem, .text-elem, #textElem {
+  color: #222;
+  margin-right: auto;
+  margin-left: 0;
+  padding: 0 8px;
+  word-break: break-word;
+  font-size: 1.25em; /* Make task text even bigger */
 }
 
 #textElemChecked {
   text-decoration: line-through;
+  color: #aaa;
 }
-/* button {
-  color: black;
-  background-color: aliceblue;
-  border-radius: 3%;
-  padding: 1%
-} */
+
+.logo {
+  border-radius: 8px;
+  width: 120px;
+  height: 120px;
+  transition: transform 800ms;
+  display: block;
+  margin: 24px auto 0 auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.logo:hover {
+  border-radius: 8px;
+  transform: scale(1.12);
+}
+
+#handle {
+  margin: 24px 0 0 0;
+  font-size: 1.1em;
+  color: #888;
+  letter-spacing: 1px;
+}
 
 
