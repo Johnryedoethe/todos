@@ -84,17 +84,19 @@ h2 {
   border-bottom: none;
 }
 
-.checkBox {
+.checkbox {
   margin-right: 20px;
   accent-color: #7b9acc;
-  width: 2.4em;
-  height: 2.4em;
-  min-width: 2.4em;
-  min-height: 2.4em;
+  width: 1.4em;
+  height: 1.4em;
+  min-width: 1.4em;
+  min-height: 1.4em;
   cursor: pointer;
-  /* Add extra clickable area */
-  padding: 6px;
-  box-sizing: content-box;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+  /* Remove default browser scaling */
+  transform: scale(1.35);
 }
 
 #deleteButton, #delete-button {
