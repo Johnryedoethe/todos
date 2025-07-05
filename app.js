@@ -75,7 +75,7 @@ function addTask(taskObj) {
   tasks.appendChild(li);
 
   // Only save if not loading from storage
-  if (typeof taskObjOrText !== "object" && typeof taskObjOrText !== "string") {
+  if (taskObj === undefined) {
     // Save to localStorage
     const tasksArr = getSavedTasks();
     tasksArr.push({ text: text, done: false });
