@@ -47,7 +47,7 @@ function addTask(taskObj) {
     textElement.style.color = "#aaa";
   }
 
-  checkbox.addEventListener("change", function() {
+  checkbox.addEventListener("change", () => {
     // Update strikethrough
     if (checkbox.checked) {
       textElement.style.textDecoration = "line-through";
@@ -76,6 +76,7 @@ function addTask(taskObj) {
 
   // Only save if not loading from storage
   if (taskObj === undefined) {
+    
     // Save to localStorage
     const tasksArr = getSavedTasks();
     tasksArr.push({ text: text, done: false });
