@@ -102,9 +102,9 @@ h2 {
   transform: scale(1.35);
 }
 
-#deleteButton, #delete-button {
+#delete-button {
   color: #fff;
-  background-color: #e57373;
+  background-color: hsl(0, 70%, 59%);
   border: none;
   border-radius: 6px;
   padding: 0.4em 1em;
@@ -115,30 +115,26 @@ h2 {
 }
 
 #deleteButton:hover, #delete-button:hover {
-  background-color: #c62828;
+  background-color: hsl(0, 76%, 45%);
   transform: scale(1.08);
 }
 
-.textElem, .text-elem, #textElem {
+.text-elem {
   color: #222;
   margin-right: auto;
   margin-left: 0;
   padding: 0 8px;
   word-break: break-word;
   flex: 1;
-  font-size: 1.15em; /* Increased font size for task text */
+  font-size: 1.8rem; /* Increased font size for task text */
   line-height: 1.4;
-}
-
-#textElemChecked {
-  text-decoration: line-through;
-  color: #aaa;
+  text-align: center;
 }
 
 .logo {
   border-radius: 8px;
-  width: 10rem;
-  height: 10rem;
+  width: 10.5rem;
+  height: 10.5rem;
   transition: transform 800ms;
   display: block;
   margin: 24px auto 0 auto;
