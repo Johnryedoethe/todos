@@ -46,7 +46,7 @@ h2 {
 
 #add-task {
   color: #222;
-  background-color: #e3f0fa;
+  background-color: #27af37;
   border-radius: 6px;
   border: 1px solid #bdbdbd;
   transition: transform 300ms, background 300ms;
@@ -57,7 +57,7 @@ h2 {
 }
 
 #add-task:hover {
-  background-color: #cbe6ff;
+  background-color: #2ab93a;
   border-radius: 8px;
   transform: scale(1.08);
 }
@@ -89,7 +89,7 @@ h2 {
 
 .checkbox {
   margin-right: 20px;
-  accent-color: #7b9acc;
+  accent-color: #2db94e;
   width: 1.4em;
   height: 1.4em;
   min-width: 1.4em;
