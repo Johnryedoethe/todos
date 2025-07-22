@@ -1,18 +1,19 @@
 // Get tasks from localStorage
-function getSavedTasks() {
+const getSavedTasks = () => {
   const saved = localStorage.getItem("tasks");
   return saved ? JSON.parse(saved) : [];
 }
 
 // Save tasks to localStorage
-function saveTasksToStorage(tasksArr) {
+const saveTasksToStorage = (tasksArr) => {
   localStorage.setItem("tasks", JSON.stringify(tasksArr));
 }
 
 // Adds a task to the list;
-// a task is an object of {text, done}.
 function addTask(taskObj) {
-  let text, done;
+  let text;
+  let done;
+
   if (taskObj) {
     text = taskObj.text.trim();
     done = !!taskObj.done;
@@ -27,11 +28,7 @@ function addTask(taskObj) {
   }
 
   const li = document.createElement("li");
-  li.draggable = true;
-  li.id = "task" + Date.now();
-  li.addEventListener("dragstart", m => {
-    m.dataTransfer.setData("text/plain", m.target.id);
-  });
+  li.id = "task"
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
@@ -56,7 +53,8 @@ function addTask(taskObj) {
       textElement.style.textDecoration = "none";
       textElement.style.color = "#222";
     }
-    // Update localStorage
+
+    // Update to localStorage
     let tasksArr = getSavedTasks();
     tasksArr = tasksArr.map(t =>
       (t.text === text) ? { text: t.text, done: checkbox.checked } : t
@@ -76,7 +74,7 @@ function addTask(taskObj) {
 
   // Only save if not loading from storage
   if (taskObj === undefined) {
-    
+
     // Save to localStorage
     const tasksArr = getSavedTasks();
     tasksArr.push({ text: text, done: false });
@@ -86,11 +84,12 @@ function addTask(taskObj) {
 }
 
 // delete a task on the list with a button 
-function deleteTask(deleteButtonClickEvent) {
+const deleteTask = (deleteButtonClickEvent) => {
   const clickedDeleteButton = deleteButtonClickEvent.target;
   const li = clickedDeleteButton.parentNode;
   const text = li.querySelector("span").textContent;
   li.remove();
+
   // Remove from localStorage
   let tasksArr = getSavedTasks();
   tasksArr = tasksArr.filter(t => t.text !== text);
