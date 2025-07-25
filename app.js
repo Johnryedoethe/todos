@@ -14,6 +14,7 @@ function addTask(taskObj) {
   let text;
   let done;
 
+  // key values/objects to check if a task has been completed or not
   if (taskObj) {
     text = taskObj.text.trim();
     done = !!taskObj.done;
@@ -99,7 +100,7 @@ const deleteTask = (deleteButtonClickEvent) => {
 
 // Load everything with setup function first, this includes the tasks
 function setup() {
-  
+
   // anchor the 3 elements already provided in the html file, the input, button and list
   const taskInput = document.getElementById("task-text");
   const addButton = document.getElementById("add-task");
@@ -109,7 +110,7 @@ function setup() {
   const savedTasks = getSavedTasks();
   savedTasks.forEach(task => addTask(task));
 
-  // add tasks with "enter" to enhance the experience for the user
+  // add tasks with "enter" for convenience for the user
   taskInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       addTask();
