@@ -9,7 +9,7 @@ const saveTasksToStorage = (tasksArr) => {
   localStorage.setItem("tasks", JSON.stringify(tasksArr));
 }
 
-// Adds a task to the list;
+// Add a task to the list
 function addTask(taskObj) {
   let text;
   let done;
@@ -58,7 +58,7 @@ function addTask(taskObj) {
     let tasksArr = getSavedTasks();
     tasksArr = tasksArr.map(t =>
       (t.text === text) ? { text: t.text, done: checkbox.checked } : t
-    );
+    )
     saveTasksToStorage(tasksArr);
   });
 
@@ -67,6 +67,7 @@ function addTask(taskObj) {
   deleteButton.id = "delete-button";
   deleteButton.addEventListener("click", deleteTask);
 
+  // render tasks dynamically
   li.appendChild(checkbox);
   li.appendChild(textElement);
   li.appendChild(deleteButton);
@@ -96,8 +97,9 @@ const deleteTask = (deleteButtonClickEvent) => {
   saveTasksToStorage(tasksArr);
 }
 
-// Load everything with setup
+// Load everything with setup function first, this includes the tasks
 function setup() {
+  
   // anchor the 3 elements already provided in the html file, the input, button and list
   const taskInput = document.getElementById("task-text");
   const addButton = document.getElementById("add-task");
@@ -107,12 +109,13 @@ function setup() {
   const savedTasks = getSavedTasks();
   savedTasks.forEach(task => addTask(task));
 
-  // add tasks with "enter" to save time for the user
+  // add tasks with "enter" to enhance the experience for the user
   taskInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       addTask();
     }
   });
 
+  // add tasks with a button
   addButton.addEventListener("click", () => addTask());
 }
